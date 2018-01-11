@@ -1,0 +1,25 @@
+{
+  "name": "webjianli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "jQuery": "^1.7.4",
+    "jquery": "^3.2.1",
+    "swiper": "^4.0.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wYuJian/web-.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wYuJian/web-/issues"
+  },
+  "homepage": "https://github.com/wYuJian/web-#readme"
+}
