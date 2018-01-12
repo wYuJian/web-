@@ -3,16 +3,15 @@
 <head>
 	<meta charset="UTF-8">
 	<title>web个人简历</title>
-	<link rel="shortcut icon" href="http://wangch0315.cn/image/chuang.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="http://www.flqin.com/img/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="./src/style/reset.css">
 	<link rel="stylesheet" type="text/css" href="node_modules/swiper/dist/css/swiper.min.css">
 	<script src="node_modules/swiper/dist/js/swiper.min.js"></script>
-	<script src='./node_modules/jquery/dist/jquery.min.js'></script>
+	<script src='src/util/fullPage/js/jquery-1.8.3.min.js'></script>
+	<link rel="stylesheet" href="src/util/fullPage/css/jquery.fullPage.css">
+	<script src="src/util/fullPage/js/jquery.fullPage.min.js"></script>
+	<link rel="stylesheet" href="src/util/animate.css">
 	<style>
-		.swiper-slide{
-			width: 100%;
-			height: 600px;
-		}
 		.header{
 			width: 100%;
 			position: fixed;
@@ -22,6 +21,7 @@
 			z-index: 100;
 			background-color: #BCD0CE;
 			opacity:0.7;
+			font-size: 14px;
 			box-sizing:border-box;
 			display: flex;
 			flex-direction:row;
@@ -40,32 +40,196 @@
 			flex-direction:row;
 
 		}
-		.swiper-pagination{
+		.header-right ul{
+			height: 100%;
+			display: flex;
+			flex-direction:row;
 			align-items:center;
 		}
-		.swiper-container-vertical>.swiper-pagination-bullets{
-			z-index: 999;
-			right: 50px;
-			top: 300px;
+		.header-right ul li{
+			cursor: pointer;
+			font-size: 14px;
+			margin-left: 10px;
+			margin-right: 10px;
 		}
-		.swiper-pagination-bullet-active{
-			width: 12px;
-			height: 12px;
+		#menu li a{
+			color: #333;
+		}
+		.section1 { background: url(src/images/1.jpg) 50%;}
+		.section1 .fp-tableCell{
+			display: flex;
+			flex-direction:column;
+			justify-content:center;
+			align-items:center;
+		}
+		.index-title{
+			font-size: 30px;
+			font-weight: 800;
+			margin-bottom: 30px;
+		}
+		.index-secp{
+			font-size: 16px;
+			margin-top: 10px;
+			margin-bottom: 10px;
+			display: none;
+		}
+		.section2 { background: url(src/images/2.jpg) 50%;}
+		.section2 .fp-tableCell{
+			display: flex;
+			flex-direction:column;
+			justify-content:center;
+			align-items:center;
+		}
+		.section3 { background: url(src/images/3.jpg) 50%;}
+		.section4 { background: url(src/images/4.jpg) 50%;}
+		#fp-nav ul li .fp-tooltip{
+		    left: -70px;
+		    text-align: center;
+		    background: rgba(0,0,0,.7);
+		    color: #FFF;
+		    padding: 0 3px 0 3px;
+		    border-radius: 4px;
+		    font-weight: 700;
+		    line-height: 24px;
+		}
+		.about-title{
+			font-size: 24px;
+			font-weight: 700;
+			text-align: center;
+		}
+		.title_en{
+			color: red;
+			font-size: 14px;
+			font-weight: 600;
+		}
+	
+		.about_info:after{
+			top: 0;
+		    left: 0;
+		    border-top: 2px solid #5686D6;
+		    border-left: 2px solid #5686D6;
+		   
+		}
+		.about_info:after {
+		    bottom: 0;
+		    right: 0;
+		    border-right: 2px solid #5686D6;
+		    border-bottom: 2px solid #5686D6;
+		}
+		.about_info:before, .about_info:after {
+		    position: absolute;
+		    width: 50px;
+		    height: 50px;
+		    content: "";
 		}
 	</style>
+	<script>
+		$(function(){
+		    $('#dowebok').fullpage({
+		    	anchors: ['page1', 'page2', 'page3', 'page4','page5','page6'],
+				menu: '#menu',
+				'navigation': true,
+				'navigationPosition': 'right',
+				'navigationTooltips': ['首页', '关于我', '心路历程', '专业技能',"我的作品","联系我"],
+		    });
+		     $("#menu li").hover(function() {
+			   		$(this).addClass('animated tada')
+			   }, function() {
+			   		$(this).removeClass('tada')
+			   });
+		     function bounceIn(){
+		     	$(".index-title").addClass('animated bounceInDown');
+		     	$(".secp1").css("display","block");
+	    		$(".secp1").addClass('animated bounceInUp');
+		     	setTimeout(function(){
+			    	$(".secp2").css("display","block");
+	    			$(".secp2").addClass('animated bounceInUp');
+			    }, 300);
+		     	setTimeout(function(){
+			    	$(".secp3").css("display","block");
+	    			$(".secp3").addClass('animated bounceInUp');
+			    }, 600);
+	    		setTimeout(function(){
+			    	$(".secp4").css("display","block");
+	    			$(".secp4").addClass('animated bounceInUp');
+			    }, 900);
+			    setTimeout(function(){
+			    	$(".index-title").removeClass('bounceInDown');
+			    	$(".secp1").removeClass('animated bounceInUp');
+			    	$(".secp2").removeClass('animated bounceInUp');
+			    	$(".secp3").removeClass('animated bounceInUp');
+			    	$(".secp4").removeClass('animated bounceInUp');
+			    }, 2000);
+		     }
+		    bounceIn()
+		    $("#menu li[data-menuanchor='page1']").on("click",function(){
+		    	bounceIn()
+		    })
+		    $("#fp-nav ul li a[href='#page1']").on("click",function(){
+		    	bounceIn()
+		    })
+		   
+		});
+	</script>
 </head>
 <body>
-	<div class="swiper-container">
-	  <div class="swiper-wrapper">
-	    <div class="swiper-slide">slider1</div>
-	    <div class="swiper-slide">slider2</div>
-	    <div class="swiper-slide">slider3</div>
-	    <div class="swiper-slide">slider4</div>
-	    <div class="swiper-slide">slider5</div>
-	    <div class="swiper-slide">slider6</div>
-	  </div>
-	  <div class="swiper-pagination"></div>
-	</div>
+	<div id="dowebok">
+    <div class="section section1">
+        <h1 class="index-title">坚持不懈的努力，注定造就不平凡的自己</h1>
+        <p class="index-secp secp1">人生只有一条路不能选择</p>
+        <p class="index-secp secp2">那就是放弃的路</p>
+        <p class="index-secp secp3">人生只有一条路不能放弃</p>
+        <p class="index-secp secp4">那就是成长的路</p>
+    </div>
+    <div class="section section2">
+       	<div>
+       		<h1 class="about-title">关于我</h1>
+       		<p style="border-top:2px solid #0a8a80;margin-top:10px;margin-bottom:10px;"></p>
+			<h2 class="title_en">· ABOUT ME ·</h2>
+       	</div>
+		<div class="about_info">
+			<img src="" alt="">
+			<div>
+				<div>
+					<p>姓名：</p>
+					<p>wangyujian</p>
+				</div>
+				<div>
+					<p>年龄：</p>
+					<p>24</p>
+				</div>
+				<div>
+					<p>应聘职位：</p>
+					<p>前端工程师、微信小程序开发</p>
+				</div>
+				<div>
+					<p>学历：</p>
+					<p>本科</p>
+				</div>
+				<div>
+					<p>专业：</p>
+					<p>软件工程</p>
+				</div>
+				<div>
+					<p>毕业院校：</p>
+					<p>泉州师范学院</p>
+				</div>
+			</div>
+		</div>
+    </div>
+    <div class="section section3">
+        <h3>第三屏</h3>
+    </div>
+    <div class="section section4">
+        <h3>第四屏</h3>
+    </div>
+    <div class="section section1">
+        <h3>第WU屏</h3>
+    </div>
+    <div class="section section1">
+        <h3>第LIU屏</h3>
+    </div>
+</div>
 	<div class="header">
 			<div class="header-left">
 				<img src="http://wangch0315.cn/image/touxiang1.jpg" alt="">
@@ -76,18 +240,15 @@
 				</div>
 			</div>
 			<div class="header-right">
-				youbian
+				<ul id='menu'>
+					<li data-menuanchor="page1"><a href="#page1">首页</a></li>
+					<li data-menuanchor="page2"><a href="#page2">关于我</a></li>
+					<li data-menuanchor="page3"><a href="#page3">心路历程</a></li>
+					<li data-menuanchor="page4"><a href="#page4">专业技能</a></li>
+					<li data-menuanchor="page5"><a href="#page5">我的作品</a></li>
+					<li data-menuanchor="page6"><a href="#page6">联系我</a></li>
+				</ul>
 			</div>
 	</div>
-	<script>
-		document.body.parentNode.style.overflow = "hidden";
-		var mySwiper = new Swiper('.swiper-container', {
-			direction: "vertical",
-			mousewheel: true,
-			pagination: {
-			    el: '.swiper-pagination',
-			},
-		})
-	</script>
 </body>
 </html>
