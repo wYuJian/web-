@@ -55,7 +55,7 @@
 		#menu li a{
 			color: #333;
 		}
-		.section1 { background: url(src/images/1.jpg) 50%;}
+		.section1 { background: url(src/images/section2.jpg) 50%;}
 		.section1 .fp-tableCell{
 			display: flex;
 			flex-direction:column;
@@ -66,6 +66,7 @@
 			font-size: 30px;
 			font-weight: 800;
 			margin-bottom: 30px;
+			display: none;
 		}
 		.index-secp{
 			font-size: 16px;
@@ -73,15 +74,23 @@
 			margin-bottom: 10px;
 			display: none;
 		}
-		.section2 { background: url(src/images/2.jpg) 50%;}
+		.section2 { background: url(src/images/section8.jpg) 50%;}
 		.section2 .fp-tableCell{
 			display: flex;
 			flex-direction:column;
 			justify-content:center;
 			align-items:center;
 		}
-		.section3 { background: url(src/images/3.jpg) 50%;}
-		.section4 { background: url(src/images/4.jpg) 50%;}
+		.section3 { background: url(src/images/bg.jpg) 50%;}
+		.section3 .fp-tableCell{
+			display: flex;
+			flex-direction:row;
+			justify-content:center ;
+			align-items:center;
+		}
+		.section4 { background: url(src/images/section9.jpg) 50%;}
+		.section5 { background: url(src/images/achivements-bg.jpg) 50%;}
+		.section6 { background: url(src/images/bg.jpg) 50%;}
 		#fp-nav ul li .fp-tooltip{
 		    left: -70px;
 		    text-align: center;
@@ -91,6 +100,36 @@
 		    border-radius: 4px;
 		    font-weight: 700;
 		    line-height: 24px;
+		}
+		.sec3Nav{
+			display: flex;
+			flex-direction:column;
+			justify-content:space-between;
+			align-items:center;
+		}
+		.sec3Nav li{
+			width: 250px;
+			font-size: 16px;
+			cursor: pointer;
+			text-align: left;
+			margin-top:15px;
+			line-height: 25px;
+			padding: 5px 0 5px 15px;
+			margin-bottom: 15px;
+		}
+		.sec3Nav li:hover{
+			box-shadow: 5px 5px 15px #000;
+    		border-radius: 10px;
+		}
+		.sec3Wrap{
+			display: none;
+			width: 400px;
+			height: 300px;
+			border: 2px solid black;
+			border-radius: 10px;
+			margin-left: 40px;
+			margin-right: 10px;
+			padding-top: 15px;
 		}
 		.about-title{
 			font-size: 24px;
@@ -102,13 +141,30 @@
 			font-size: 14px;
 			font-weight: 600;
 		}
-	
-		.about_info:after{
-			top: 0;
+		.about_info{
+			width: 600px;
+			position: relative;
+			display: none;
+			flex-direction:row;
+			justify-content:center;
+			align-items:center;
+			padding: 5px 10px;
+		}
+		.about_info img{
+			border-radius: 10px;
+			margin-right: 10px;	
+		}
+		.about_info:before {
+		    top: 0;
 		    left: 0;
 		    border-top: 2px solid #5686D6;
 		    border-left: 2px solid #5686D6;
-		   
+		}
+		.about_info:before, .about_info:after {
+		    position: absolute;
+		    width: 50px;
+		    height: 50px;
+		    content: "";
 		}
 		.about_info:after {
 		    bottom: 0;
@@ -116,11 +172,37 @@
 		    border-right: 2px solid #5686D6;
 		    border-bottom: 2px solid #5686D6;
 		}
-		.about_info:before, .about_info:after {
+		.about_info:before, #about_info:after {
 		    position: absolute;
 		    width: 50px;
 		    height: 50px;
 		    content: "";
+		}
+		.info-user{
+			display: flex;
+			flex-direction:row;
+			justify-content:flex-start;
+			margin-bottom: 10px;
+			margin-top: 10px;
+			font-size: 16px;
+			text-shadow: 5px 5px 10px #666;
+		}
+		.about-me{
+			display: none;
+			margin-bottom: 100px;
+		}
+		.isNone{
+			display: block;
+		}
+		.NoShow{
+			display: none;
+		}
+		.sec3Box p{
+			text-align: center;
+			font-size: 16px;
+			margin-top: 15px;
+			margin-bottom: 25px;
+			color: #037375;
 		}
 	</style>
 	<script>
@@ -131,13 +213,49 @@
 				'navigation': true,
 				'navigationPosition': 'right',
 				'navigationTooltips': ['首页', '关于我', '心路历程', '专业技能',"我的作品","联系我"],
+				afterLoad:function(anchorLink,index){
+					if(index == 1){
+						 bounceIn()
+					}
+					if(index != 1){
+						$(".index-title").css("display","none");
+						$(".index-secp").css("display","none");
+					}
+					if(index==2){
+						$(".about-me").addClass('animated fadeInDown isNone');
+						$(".about_info").fadeIn('slow');
+						$(".about_info").css({
+							display: 'flex'
+						});
+					}
+					if(index != 2){
+						$(".about-me").removeClass('animated fadeInDown isNone');
+						$(".about_info").fadeOut('slow');
+					}
+					if(index == 3){
+						$(".sec3Nav li").addClass('animated slideInLeft');
+						$(".sec3Nav").show();
+						$(".sec3Wrap").addClass('animated slideInRight');
+						$(".sec3Wrap").show();
+
+					}
+					if(index != 3){
+						$(".sec3Nav li").removeClass('animated slideInLeft');
+						$(".sec3Nav").hide();
+						$(".sec3Wrap").hide();
+						$(".sec3Wrap").removeClass('animated slideInRight');
+
+					}
+				}
 		    });
+		    bounceIn()
 		     $("#menu li").hover(function() {
-			   		$(this).addClass('animated tada')
+			   		$(this).addClass('animated tada');
 			   }, function() {
-			   		$(this).removeClass('tada')
+			   		$(this).removeClass('tada');
 			   });
 		     function bounceIn(){
+		     	$(".index-title").css("display","block");
 		     	$(".index-title").addClass('animated bounceInDown');
 		     	$(".secp1").css("display","block");
 	    		$(".secp1").addClass('animated bounceInUp');
@@ -161,14 +279,29 @@
 			    	$(".secp4").removeClass('animated bounceInUp');
 			    }, 2000);
 		     }
-		    bounceIn()
-		    $("#menu li[data-menuanchor='page1']").on("click",function(){
-		    	bounceIn()
+		     var lichengTitle = ["简单的自我介绍-->","为什么想做前端工程师-->","有什么样的优势和不足-->","我的梦想-->"];
+		   $.each(lichengTitle, function(index, val) {
+		   		var secClass = "sec3-li"+(index+1); 
+		   	 	$(".sec3Nav").append('<li class='+secClass+'>'+val+'</li>');
+		   });
+		   var content = ["您好，我是王玉剑&爱编程，爱前端，爱新技术，&爱运动，爱健身，爱旅行，&生活中活泼开朗、喜欢沟通交流，&工作上认真负责、热爱学习创新，&目前，自身技术还差很远，&但，路程虽远，仍要负重前行！！",
+		   "可能就像这一句情话&You are the css to my html.&“我的生活索然无味，&直到遇见了你。”&为爱好而学，为看好这个行业而学",
+		   "我的不足是：非计算机专业&导致很多非前端范畴的专业名词理解不深，改进ing!&我的优势是：非计算机专业&建筑工作的经历，铸就了我工作认真，不怕吃苦的作风！&如果您看好我，&那就选我吧！",
+		   "有人说【IT是个青春饭】&但我 (ฅ´ω`ฅ)&会一直走下去&成为一名优秀的前端工程师&。&。&当然，得先有一个您给我发的offer！"];
+		    $.each(content, function(index, val) {
+		   	 	console.log(val.split("&"));
+		   	 	var div = $('<div class="NoShow sec3Box"></div>');
+		   	 	$.each(val.split("&"), function(i,item) {
+		   	 		 div.append('<p>'+item+'</p>')
+		   	 	});
+		   	 	
+		   	 	$(".sec3Wrap").append(div);
+		   });
+		    $(".sec3Box").eq(0).removeClass('NoShow');
+		    $(".sec3Nav li").on("mouseover",function(){
+		    	var index = $(this).index();
+		    	$(".sec3Box").eq(index).removeClass('NoShow').siblings().addClass('NoShow');
 		    })
-		    $("#fp-nav ul li a[href='#page1']").on("click",function(){
-		    	bounceIn()
-		    })
-		   
 		});
 	</script>
 </head>
@@ -182,35 +315,35 @@
         <p class="index-secp secp4">那就是成长的路</p>
     </div>
     <div class="section section2">
-       	<div>
+       	<div class="about-me">
        		<h1 class="about-title">关于我</h1>
        		<p style="border-top:2px solid #0a8a80;margin-top:10px;margin-bottom:10px;"></p>
 			<h2 class="title_en">· ABOUT ME ·</h2>
        	</div>
 		<div class="about_info">
-			<img src="" alt="">
+				<img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=4248968626,3165626722&fm=58" alt="">
 			<div>
-				<div>
-					<p>姓名：</p>
-					<p>wangyujian</p>
+				<div class="info-user">
+					<p>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</p>
+					<p>王玉剑</p>
 				</div>
-				<div>
-					<p>年龄：</p>
+				<div class="info-user">
+					<p>年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄：</p>
 					<p>24</p>
 				</div>
-				<div>
+				<div class="info-user">
 					<p>应聘职位：</p>
 					<p>前端工程师、微信小程序开发</p>
 				</div>
-				<div>
-					<p>学历：</p>
+				<div class="info-user">
+					<p>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历：</p>
 					<p>本科</p>
 				</div>
-				<div>
-					<p>专业：</p>
+				<div class="info-user">
+					<p>专&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;业：</p>
 					<p>软件工程</p>
 				</div>
-				<div>
+				<div class="info-user">
 					<p>毕业院校：</p>
 					<p>泉州师范学院</p>
 				</div>
@@ -218,15 +351,22 @@
 		</div>
     </div>
     <div class="section section3">
-        <h3>第三屏</h3>
+       <div>
+       		<ul class="sec3Nav">
+       			
+       		</ul>
+       </div>
+       <div class="sec3Wrap">
+       		
+       </div>
     </div>
     <div class="section section4">
         <h3>第四屏</h3>
     </div>
-    <div class="section section1">
+    <div class="section section5">
         <h3>第WU屏</h3>
     </div>
-    <div class="section section1">
+    <div class="section section6">
         <h3>第LIU屏</h3>
     </div>
 </div>
