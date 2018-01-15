@@ -10,300 +10,9 @@
 	<script src='src/util/fullPage/js/jquery-1.8.3.min.js'></script>
 	<link rel="stylesheet" href="src/util/fullPage/css/jquery.fullPage.css">
 	<script src="src/util/fullPage/js/jquery.fullPage.min.js"></script>
-	<link rel="stylesheet" href="src/util/animate.css">
-	<style>
-		.header{
-			width: 100%;
-			position: fixed;
-			top: 0;
-			left: 0;
-			padding: 10px 20px;
-			z-index: 100;
-			background-color: #BCD0CE;
-			opacity:0.7;
-			font-size: 14px;
-			box-sizing:border-box;
-			display: flex;
-			flex-direction:row;
-			justify-content:space-between;
-		}
-		.header img{
-			width: 50px;
-			height: 50px;
-			border-radius: 50%;
-		}
-		.header img:hover{
-			box-shadow: 0px 0px 20px #00afc7;
-		}
-		.header-left{
-			display: flex;
-			flex-direction:row;
-
-		}
-		.header-right ul{
-			height: 100%;
-			display: flex;
-			flex-direction:row;
-			align-items:center;
-		}
-		.header-right ul li{
-			cursor: pointer;
-			font-size: 14px;
-			margin-left: 10px;
-			margin-right: 10px;
-		}
-		#menu li a{
-			color: #333;
-		}
-		.section1 { background: url(src/images/section2.jpg) 50%;}
-		.section1 .fp-tableCell{
-			display: flex;
-			flex-direction:column;
-			justify-content:center;
-			align-items:center;
-		}
-		.index-title{
-			font-size: 30px;
-			font-weight: 800;
-			margin-bottom: 30px;
-			display: none;
-		}
-		.index-secp{
-			font-size: 16px;
-			margin-top: 10px;
-			margin-bottom: 10px;
-			display: none;
-		}
-		.section2 { background: url(src/images/section8.jpg) 50%;}
-		.section2 .fp-tableCell{
-			display: flex;
-			flex-direction:column;
-			justify-content:center;
-			align-items:center;
-		}
-		.section3 { background: url(src/images/bg.jpg) 50%;}
-		.section3 .fp-tableCell{
-			display: flex;
-			flex-direction:row;
-			justify-content:center ;
-			align-items:center;
-		}
-		.section4 { background: url(src/images/section9.jpg) 50%;}
-		.section5 { background: url(src/images/achivements-bg.jpg) 50%;}
-		.section6 { background: url(src/images/bg.jpg) 50%;}
-		#fp-nav ul li .fp-tooltip{
-		    left: -70px;
-		    text-align: center;
-		    background: rgba(0,0,0,.7);
-		    color: #FFF;
-		    padding: 0 3px 0 3px;
-		    border-radius: 4px;
-		    font-weight: 700;
-		    line-height: 24px;
-		}
-		.sec3Nav{
-			display: flex;
-			flex-direction:column;
-			justify-content:space-between;
-			align-items:center;
-		}
-		.sec3Nav li{
-			width: 250px;
-			font-size: 16px;
-			cursor: pointer;
-			text-align: left;
-			margin-top:15px;
-			line-height: 25px;
-			padding: 5px 0 5px 15px;
-			margin-bottom: 15px;
-		}
-		.sec3Nav li:hover{
-			box-shadow: 5px 5px 15px #000;
-    		border-radius: 10px;
-		}
-		.sec3Wrap{
-			display: none;
-			width: 400px;
-			height: 300px;
-			border: 2px solid black;
-			border-radius: 10px;
-			margin-left: 40px;
-			margin-right: 10px;
-			padding-top: 15px;
-		}
-		.about-title{
-			font-size: 24px;
-			font-weight: 700;
-			text-align: center;
-		}
-		.title_en{
-			color: red;
-			font-size: 14px;
-			font-weight: 600;
-		}
-		.about_info{
-			width: 600px;
-			position: relative;
-			display: none;
-			flex-direction:row;
-			justify-content:center;
-			align-items:center;
-			padding: 5px 10px;
-		}
-		.about_info img{
-			border-radius: 10px;
-			margin-right: 10px;	
-		}
-		.about_info:before {
-		    top: 0;
-		    left: 0;
-		    border-top: 2px solid #5686D6;
-		    border-left: 2px solid #5686D6;
-		}
-		.about_info:before, .about_info:after {
-		    position: absolute;
-		    width: 50px;
-		    height: 50px;
-		    content: "";
-		}
-		.about_info:after {
-		    bottom: 0;
-		    right: 0;
-		    border-right: 2px solid #5686D6;
-		    border-bottom: 2px solid #5686D6;
-		}
-		.about_info:before, #about_info:after {
-		    position: absolute;
-		    width: 50px;
-		    height: 50px;
-		    content: "";
-		}
-		.info-user{
-			display: flex;
-			flex-direction:row;
-			justify-content:flex-start;
-			margin-bottom: 10px;
-			margin-top: 10px;
-			font-size: 16px;
-			text-shadow: 5px 5px 10px #666;
-		}
-		.about-me{
-			display: none;
-			margin-bottom: 100px;
-		}
-		.isNone{
-			display: block;
-		}
-		.NoShow{
-			display: none;
-		}
-		.sec3Box p{
-			text-align: center;
-			font-size: 16px;
-			margin-top: 15px;
-			margin-bottom: 25px;
-			color: #037375;
-		}
-	</style>
-	<script>
-		$(function(){
-		    $('#dowebok').fullpage({
-		    	anchors: ['page1', 'page2', 'page3', 'page4','page5','page6'],
-				menu: '#menu',
-				'navigation': true,
-				'navigationPosition': 'right',
-				'navigationTooltips': ['首页', '关于我', '心路历程', '专业技能',"我的作品","联系我"],
-				afterLoad:function(anchorLink,index){
-					if(index == 1){
-						 bounceIn()
-					}
-					if(index != 1){
-						$(".index-title").css("display","none");
-						$(".index-secp").css("display","none");
-					}
-					if(index==2){
-						$(".about-me").addClass('animated fadeInDown isNone');
-						$(".about_info").fadeIn('slow');
-						$(".about_info").css({
-							display: 'flex'
-						});
-					}
-					if(index != 2){
-						$(".about-me").removeClass('animated fadeInDown isNone');
-						$(".about_info").fadeOut('slow');
-					}
-					if(index == 3){
-						$(".sec3Nav li").addClass('animated slideInLeft');
-						$(".sec3Nav").show();
-						$(".sec3Wrap").addClass('animated slideInRight');
-						$(".sec3Wrap").show();
-
-					}
-					if(index != 3){
-						$(".sec3Nav li").removeClass('animated slideInLeft');
-						$(".sec3Nav").hide();
-						$(".sec3Wrap").hide();
-						$(".sec3Wrap").removeClass('animated slideInRight');
-
-					}
-				}
-		    });
-		    bounceIn()
-		     $("#menu li").hover(function() {
-			   		$(this).addClass('animated tada');
-			   }, function() {
-			   		$(this).removeClass('tada');
-			   });
-		     function bounceIn(){
-		     	$(".index-title").css("display","block");
-		     	$(".index-title").addClass('animated bounceInDown');
-		     	$(".secp1").css("display","block");
-	    		$(".secp1").addClass('animated bounceInUp');
-		     	setTimeout(function(){
-			    	$(".secp2").css("display","block");
-	    			$(".secp2").addClass('animated bounceInUp');
-			    }, 300);
-		     	setTimeout(function(){
-			    	$(".secp3").css("display","block");
-	    			$(".secp3").addClass('animated bounceInUp');
-			    }, 600);
-	    		setTimeout(function(){
-			    	$(".secp4").css("display","block");
-	    			$(".secp4").addClass('animated bounceInUp');
-			    }, 900);
-			    setTimeout(function(){
-			    	$(".index-title").removeClass('bounceInDown');
-			    	$(".secp1").removeClass('animated bounceInUp');
-			    	$(".secp2").removeClass('animated bounceInUp');
-			    	$(".secp3").removeClass('animated bounceInUp');
-			    	$(".secp4").removeClass('animated bounceInUp');
-			    }, 2000);
-		     }
-		     var lichengTitle = ["简单的自我介绍-->","为什么想做前端工程师-->","有什么样的优势和不足-->","我的梦想-->"];
-		   $.each(lichengTitle, function(index, val) {
-		   		var secClass = "sec3-li"+(index+1); 
-		   	 	$(".sec3Nav").append('<li class='+secClass+'>'+val+'</li>');
-		   });
-		   var content = ["您好，我是王玉剑&爱编程，爱前端，爱新技术，&爱运动，爱健身，爱旅行，&生活中活泼开朗、喜欢沟通交流，&工作上认真负责、热爱学习创新，&目前，自身技术还差很远，&但，路程虽远，仍要负重前行！！",
-		   "可能就像这一句情话&You are the css to my html.&“我的生活索然无味，&直到遇见了你。”&为爱好而学，为看好这个行业而学",
-		   "我的不足是：非计算机专业&导致很多非前端范畴的专业名词理解不深，改进ing!&我的优势是：非计算机专业&建筑工作的经历，铸就了我工作认真，不怕吃苦的作风！&如果您看好我，&那就选我吧！",
-		   "有人说【IT是个青春饭】&但我 (ฅ´ω`ฅ)&会一直走下去&成为一名优秀的前端工程师&。&。&当然，得先有一个您给我发的offer！"];
-		    $.each(content, function(index, val) {
-		   	 	console.log(val.split("&"));
-		   	 	var div = $('<div class="NoShow sec3Box"></div>');
-		   	 	$.each(val.split("&"), function(i,item) {
-		   	 		 div.append('<p>'+item+'</p>')
-		   	 	});
-		   	 	
-		   	 	$(".sec3Wrap").append(div);
-		   });
-		    $(".sec3Box").eq(0).removeClass('NoShow');
-		    $(".sec3Nav li").on("mouseover",function(){
-		    	var index = $(this).index();
-		    	$(".sec3Box").eq(index).removeClass('NoShow').siblings().addClass('NoShow');
-		    })
-		});
-	</script>
+	<link rel="stylesheet" href="./src/util/animate.css">
+	<link rel="stylesheet" href="./src/style/web.css">
+	<script src="./src/js/web.js"></script>
 </head>
 <body>
 	<div id="dowebok">
@@ -361,18 +70,230 @@
        </div>
     </div>
     <div class="section section4">
-        <h3>第四屏</h3>
+        <h1 class="skill-title">·专业技能·</h1>
+        <div>
+        	<ul class="skill-content">
+        		<li class="skill-content-item">
+        			<h2>HTML</h2>
+        			<ul class="skill-info">
+        				<li class="skill-info-item">熟练HTML标记语言</li>
+        				<li class="skill-info-item">深刻理解web标准和w3c规范</li>
+        				<li class="skill-info-item">熟练HTML熟悉盒模型和各类布局方式、 能够根据设计图实现页面布局和交互效果</li>
+        				<li class="skill-info-item">对HTML5 移动web应用有一定的了解，有移动端开发经验</li>
+        			</ul>
+        		</li>
+        		<li class="skill-content-item">
+        			<h2>CSS3</h2>
+        			<ul class="skill-info">
+        				<li class="skill-info-item">熟练运用css及css新特性</li>
+        				<li class="skill-info-item">熟悉css3标准，能够解决常见兼容性问题</li>
+        				<li class="skill-info-item">熟练Bootstrap,antd来实现各种布局特效</li>
+        				<li class="skill-info-item">熟练使用DIV+CSS进行页面布局、响应式布局等</li>
+        			</ul>
+        		</li>
+        		<li class="skill-content-item">
+        			<h2>JavaScript</h2>
+        			<ul class="skill-info">
+        				<li class="skill-info-item">对js有深入的了解，熟练使用js，熟悉oop面向对象编程思想</li>
+        				<li class="skill-info-item">熟悉Ajax、jsonp原理，有ajax交互经验，熟练使用JSON</li>
+        				<li class="skill-info-item">熟练掌握jQuery</li>
+        				<li class="skill-info-item">注重javascript的性能优化</li>
+        			</ul>
+        		</li>
+        		<li class="skill-content-item">
+        			<h2>React</h2>
+        			<ul class="skill-info">
+        				<li class="skill-info-item">熟练HTML标记语言</li>
+        				<li class="skill-info-item">深刻理解web标准和w3c规范</li>
+        				<li class="skill-info-item">熟练HTML熟悉盒模型和各类布局方式、 能够根据设计图实现页面布局和交互效果</li>
+        				<li class="skill-info-item">对HTML5 移动web应用有一定的了解，有移动端开发经验</li>
+        			</ul>
+        		</li>
+        		
+        	</ul>
+        </div>
     </div>
     <div class="section section5">
-        <h3>第WU屏</h3>
+        <div class="my-demo">
+       		<h1 class="demo-title">我的作品</h1>
+       		<p style="border-top:2px solid #0a8a80;margin-top:10px;margin-bottom:10px;width:100px;"></p>
+			<h2 class="title_en">· DEMO ·</h2>
+       	</div>
+       	<div class="slide">
+       		<div class="demo1">
+       			<div style="position:relative;height:100%;width:45%;">
+	       			<img style="position:absolute;top:120px;left:0;z-index:3;"src="./src/images/mi1.jpg" height="210" width="500" alt="">
+	       			<img style="position:absolute;top:170px;left:100px;z-index:2"src="./src/images/mi3.jpg" height="210" width="500" alt="">
+	       			<img style="position:absolute;top:220px;left:200px;z-index:1"src="./src/images/mi2.jpg" height="210" width="500" alt="">
+	       		</div>
+	       		<div style="display:flex;
+	       				flex-direction:column;
+						justify-content:center;
+						font-size:12px;
+						padding-right:15px;">
+	       			<p style="font-size:18px;font-weight:600;">小米商城官网</p>
+	       			<div style="display:flex;flex-direction:row;margin-top:10px;margin-bottom:10px;">
+	       				<span style="font-weight:600;">技术实现：</span>
+	       				<p>HTML+js+react+antd</p>
+	       			</div>
+	       			<div style="display:flex;flex-direction:row;">
+	       				<span style="font-weight:600;">项目描述：</span>
+	       				<p>仿照小米商城、实现小米商城首页、详情页面</p>
+	       			</div>
+	       			<div style="margin-top:10px;margin-bottom:10px;">
+	       				<p style="margin-top:10px;margin-bottom:10px;font-size:14px;font-weight:600;">实现技术：</p>
+	       				<p style="margin-top:10px;margin-bottom:10px;">通过采用div+css样式布局排版</p>
+	       				<p style="margin-top:10px;margin-bottom:10px;">使用jQuery完成页面动态效果部分</p>
+	       				<p style="margin-top:10px;margin-bottom:10px;">使用html5、css3新特性进行样式，动态效果的实现</p>
+	       			</div>
+	       			<div style="">
+	       				<p style="margin-top:10px;margin-bottom:10px;font-weight:600;">项目收获：</p>
+	       				<p style="margin-top:10px;margin-bottom:10px;">熟悉了js dom,event,ajax，能够编写js原生代码</p>
+	       				<p style="margin-top:10px;margin-bottom:10px;">更加熟练掌握了css3的特性</p>
+	       				<p style="margin-top:10px;margin-bottom:10px;">更加熟练用chrome等调试工具调试代码</p>
+	       			</div>
+	       			<div style="margin-top:10px;margin-bottom:10px;">
+	       				<p style="margin-bottom:10px;color:red;">项目地址</p>
+	       				<a href="../svn/trunk/index.html">跳转至项目</a>
+	       			</div>
+	       		</div>
+       		</div>
+       	</div>
+        <div class="slide">
+        	<div class="demo1">
+       			<div style="position:relative;height:100%;width:45%;">
+	       			<img style="position:absolute;top:120px;left:0;z-index:3;"src="./src/images/mi1.jpg" height="210" width="500" alt="">
+	       			<img style="position:absolute;top:170px;left:100px;z-index:2"src="./src/images/mi3.jpg" height="210" width="500" alt="">
+	       			<img style="position:absolute;top:220px;left:200px;z-index:1"src="./src/images/mi2.jpg" height="210" width="500" alt="">
+	       		</div>
+	       		<div style="display:flex;
+	       				flex-direction:column;
+						justify-content:center;
+						font-size:12px;
+						padding-right:15px;">
+	       			<p style="font-size:18px;font-weight:600;">小米商城官网</p>
+	       			<div style="display:flex;flex-direction:row;margin-top:10px;margin-bottom:10px;">
+	       				<span style="font-weight:600;">技术实现：</span>
+	       				<p>HTML+js+react+antd</p>
+	       			</div>
+	       			<div style="display:flex;flex-direction:row;">
+	       				<span style="font-weight:600;">项目描述：</span>
+	       				<p>仿照小米商城、实现小米商城首页、详情页面</p>
+	       			</div>
+	       			<div style="margin-top:10px;margin-bottom:10px;">
+	       				<p style="margin-top:10px;margin-bottom:10px;font-size:14px;font-weight:600;">实现技术：</p>
+	       				<p style="margin-top:10px;margin-bottom:10px;">通过采用div+css样式布局排版</p>
+	       				<p style="margin-top:10px;margin-bottom:10px;">使用jQuery完成页面动态效果部分</p>
+	       				<p style="margin-top:10px;margin-bottom:10px;">使用html5、css3新特性进行样式，动态效果的实现</p>
+	       			</div>
+	       			<div style="">
+	       				<p style="margin-top:10px;margin-bottom:10px;font-weight:600;">项目收获：</p>
+	       				<p style="margin-top:10px;margin-bottom:10px;">熟悉了js dom,event,ajax，能够编写js原生代码</p>
+	       				<p style="margin-top:10px;margin-bottom:10px;">更加熟练掌握了css3的特性</p>
+	       				<p style="margin-top:10px;margin-bottom:10px;">更加熟练用chrome等调试工具调试代码</p>
+	       			</div>
+	       			<div style="margin-top:10px;margin-bottom:10px;">
+	       				<p style="margin-bottom:10px;color:red;">项目地址</p>
+	       				<a href="../svn/trunk/index.html">跳转至项目</a>
+	       			</div>
+	       		</div>
+       		</div>
+        </div>
+        <div class="slide">
+        	<div class="demo1">
+       			<div style="position:relative;height:100%;width:45%;">
+	       			<img style="position:absolute;top:120px;left:0;z-index:3;"src="./src/images/mi1.jpg" height="210" width="500" alt="">
+	       			<img style="position:absolute;top:170px;left:100px;z-index:2"src="./src/images/mi3.jpg" height="210" width="500" alt="">
+	       			<img style="position:absolute;top:220px;left:200px;z-index:1"src="./src/images/mi2.jpg" height="210" width="500" alt="">
+	       		</div>
+	       		<div style="display:flex;
+	       				flex-direction:column;
+						justify-content:center;
+						font-size:12px;
+						padding-right:15px;">
+	       			<p style="font-size:18px;font-weight:600;">小米商城官网</p>
+	       			<div style="display:flex;flex-direction:row;margin-top:10px;margin-bottom:10px;">
+	       				<span style="font-weight:600;">技术实现：</span>
+	       				<p>HTML+js+react+antd</p>
+	       			</div>
+	       			<div style="display:flex;flex-direction:row;">
+	       				<span style="font-weight:600;">项目描述：</span>
+	       				<p>仿照小米商城、实现小米商城首页、详情页面</p>
+	       			</div>
+	       			<div style="margin-top:10px;margin-bottom:10px;">
+	       				<p style="margin-top:10px;margin-bottom:10px;font-size:14px;font-weight:600;">实现技术：</p>
+	       				<p style="margin-top:10px;margin-bottom:10px;">通过采用div+css样式布局排版</p>
+	       				<p style="margin-top:10px;margin-bottom:10px;">使用jQuery完成页面动态效果部分</p>
+	       				<p style="margin-top:10px;margin-bottom:10px;">使用html5、css3新特性进行样式，动态效果的实现</p>
+	       			</div>
+	       			<div style="">
+	       				<p style="margin-top:10px;margin-bottom:10px;font-weight:600;">项目收获：</p>
+	       				<p style="margin-top:10px;margin-bottom:10px;">熟悉了js dom,event,ajax，能够编写js原生代码</p>
+	       				<p style="margin-top:10px;margin-bottom:10px;">更加熟练掌握了css3的特性</p>
+	       				<p style="margin-top:10px;margin-bottom:10px;">更加熟练用chrome等调试工具调试代码</p>
+	       			</div>
+	       			<div style="margin-top:10px;margin-bottom:10px;">
+	       				<p style="margin-bottom:10px;color:red;">项目地址</p>
+	       				<a href="../svn/trunk/index.html">跳转至项目</a>
+	       			</div>
+	       		</div>
+       		</div>
+        </div>
     </div>
     <div class="section section6">
-        <h3>第LIU屏</h3>
+        <div class="contact-me">
+        	<h1 class="contact-title">联系我</h1>
+       		<p style="border-top:2px solid #0a8a80;margin-top:10px;margin-bottom:10px;width:130px;"></p>
+			<h2 class="title_en">· CONTACT ME ·</h2>
+        </div>
+		<div class="contact_head1">
+			灵感 代码 梦想 未来
+		</div>
+		<div class="contact_head2">
+			<p>INSPIRATION</p>
+			<p>CODE</p>
+			<p>DREAM</p>
+			<p>FUTURE</p>
+		</div>
+		<div class="contact_info">
+			<p>学习是一个充实愉悦的过程</p>
+			<p>前端更贴近用户，这种体验非常美妙</p>
+			<p>热爱FE.D，也热爱一切美好的事物</p>
+			<p>行路有良友，便是捷径</p>
+			<p>带上我吧，一起看到更大的世界</p>
+		</div>
+		<div style="margin-top:50px;">
+			<ul class="contact_scale">
+				<li class="W-lian-bottom">
+					<i class="iconfont">&#xe65a;</i>
+					<span class="W-Phone">13123132003</span>
+				</li>
+				
+				<li class="W-lian-bottom">
+					<i class="iconfont">&#xe626;</i>
+					<span class="W-Email">569365020@qq.com</span>
+				</li>
+				<li class="W-lian-bottom">
+					<i class="iconfont">&#xe63c;</i>
+					<span class="W-QQ"><img src="./src/images/QQ .jpg" height="1207" width="1083" alt=""></span>
+				</li>
+				<li class="W-lian-bottom">
+					<i class="iconfont">&#xe611;</i>
+					<span class="W-Wechat"><img src="./src/images/weixin.jpg" height="1262" width="1169" alt=""></span>
+				</li>
+				<li class="W-lian-bottom">
+					<a href="https://github.com/wYuJian" target="_brank" title="">
+						<i class="iconfont">&#xe6a4;</i>
+					</a>
+					<span class="W-Github">https://github.com/wYuJian</span>
+				</li>
+			</ul>
+		</div>
     </div>
 </div>
 	<div class="header">
 			<div class="header-left">
-				<img src="http://wangch0315.cn/image/touxiang1.jpg" alt="">
+				<img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=4248968626,3165626722&fm=58" alt="">
 				<div>
 					<p>WangYuJian</p>
 					<hr>
