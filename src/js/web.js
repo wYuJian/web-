@@ -116,10 +116,10 @@ $(function(){
 		    	$(".sec3Box").eq(index).removeClass('NoShow').siblings().addClass('NoShow');
 		    })
 		    $(".W-lian-bottom").on("mouseover",function(){
-		    	$(this).children('span').fadeIn(2000);
+		    	$(this).children('span').fadeIn(2000).siblings().stop();
 		    })
 		    $(".W-lian-bottom").hover(function() {
-		    	$(this).children('span').fadeIn(100);
+		    	$(this).children('span').fadeIn(100).siblings().stop();
 		    }, function() {
 		    	$(this).children('span').fadeOut(100);
 		    });
