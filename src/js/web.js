@@ -116,13 +116,13 @@ $(function(){
 		    	$(".sec3Box").eq(index).removeClass('NoShow').siblings().addClass('NoShow');
 		    })
 		    $(".W-lian-bottom").on("mouseover",function(){
-		    	$(this).children('span').fadeIn(2000).siblings().stop();
+		    	$(this).children('span').fadeIn(2000);
 		    })
 		    $(".W-lian-bottom").hover(function() {
 		    	$(this).children('span').fadeIn(100).siblings().stop();
-			$(this).siblings().animate().stop();
+			$(this).siblings().children('span').animate().stop();
 		    }, function() {
 		    	$(this).children('span').fadeOut(100);
-			$(this).siblings().animate().stop();
+			$(this).siblings().children('span').animate().stop();
 		    });
 		});
