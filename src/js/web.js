@@ -115,14 +115,12 @@ $(function(){
 		    	var index = $(this).index();
 		    	$(".sec3Box").eq(index).removeClass('NoShow').siblings().addClass('NoShow');
 		    })
-		    $(".W-lian-bottom").on("mouseover",function(){
-		    	$(this).children('span').fadeIn(2000);
+		    $(".W-lian-bottom").on("mouseover", function () {
+			$(this).children('span').fadeIn(500).siblings().stop(true);
 		    })
-		    $(".W-lian-bottom").hover(function() {
-		    	$(this).children('span').fadeIn(100).siblings().stop();
-			$(this).siblings().children('span').animate().stop();
-		    }, function() {
-		    	$(this).children('span').fadeOut(100);
-			$(this).siblings().children('span').animate().stop();
+		    $(".W-lian-bottom").hover(function () {
+			$(this).children('span').fadeIn(100).siblings().animate().stop(true);
+		    }, function () {
+			$(this).children('span').fadeOut(0);
 		    });
 		});
