@@ -96,7 +96,7 @@ $(function(){
 		     var lichengTitle = ["简单的自我介绍-->","为什么想做前端工程师-->","有什么样的优势和不足-->","我的梦想-->"];
 		   $.each(lichengTitle, function(index, val) {
 		   		var secClass = "sec3-li"+(index+1); 
-		   	 	$(".sec3Nav").append('<li class='+secClass+'>'+val+'</li>');
+		   	 	$(".sec3Nav").append('<li class='+secClass+'>'+val+'</li>'); 
 		   });
 		   var content = ["您好，我是王玉剑&爱编程，爱前端，爱新技术，&爱运动，爱健身，爱旅行，&生活中活泼开朗、喜欢沟通交流，&工作上认真负责、热爱学习创新，&目前，自身技术还差很远，&但，路程虽远，仍要负重前行！！",
 		   "可能就像这一句情话&You are the css to my html.&“我的生活索然无味，&直到遇见了你。”&为爱好而学，为看好这个行业而学",
