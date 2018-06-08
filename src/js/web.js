@@ -120,7 +120,9 @@ $(function(){
 		    })
 		    $(".W-lian-bottom").hover(function() {
 		    	$(this).children('span').fadeIn(100).siblings().stop();
+			$(this).siblings().animate().stop();
 		    }, function() {
 		    	$(this).children('span').fadeOut(100);
+			$(this).siblings().animate().stop();
 		    });
 		});
